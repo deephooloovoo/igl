@@ -104,7 +104,7 @@ setignoredelay(Actuator *a)
     /* don't start delaying until next delay */
 }
 
-extern void _newvaltogglebutton();
+extern void _newvaltogglebutton(struct actuator *,struct panel *,float,float);
 
 initscriptpanel()
 {

@@ -520,9 +520,9 @@ typedef struct actuator {
 #ifdef IRIS_4D
     void (*addsubfunc)(struct actuator *, struct actuator *);	/* to add a sub act to this act */
     void (*fixfunc)(struct actuator *);
-    Boolean (*pickfunc)(/*struct actuator *,struct panel *,float,float*/);
+    Boolean (*pickfunc)(struct actuator *,struct panel *,float,float);
     void (*delfunc)(struct actuator *);
-    void (*newvalfunc)(/*struct actuator *,struct panel *,float,float*/);
+    void (*newvalfunc)(struct actuator *,struct panel *,float,float);
     void (*dumpfunc)(struct actuator *, int);
     void (*loadfunc)(struct actuator *, int);
 #else  IRIS_4D

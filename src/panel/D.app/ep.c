@@ -108,6 +108,9 @@ Actuator *spectrumbutton, *contourbutton, *bandbutton;
 #define MSLIDERVAL(Mname) (((Modslider *)(Mname/**/slider->u))->valbar->extval)
 #endif
 #define MSLIDERVAL(Mname) (((Modslider *)(Mname##slider->u))->valbar->extval)
+
+void defpanel();
+
 typedef struct {
   int mode;	/* WRAP or BOUNCE */
   float center, range, sense;
@@ -410,7 +413,7 @@ togglefullscreen(Actuator *a)
   }
 }
 
-animateslider(Actuator *a)
+void animateslider(Actuator *a)
      
 {
   Modslider *au=(Modslider *)a->u;
@@ -448,14 +451,14 @@ animateslider(Actuator *a)
   pnl_fixact(a);
 }
 
-animatesliders()
+void animatesliders()
 {
   Alist *e;
 
   for (e=modsliderlist;e;e=e->next) animateslider(e->a);
 }
 
-deflight()
+void deflight()
 {
 #ifdef IRIS_GT
   static float material1[] = {
@@ -518,7 +521,7 @@ deflight()
 #endif IRIS_GT
 }
 
-uselight()
+void uselight()
 {
 #ifdef IRIS_GT
   lmbind(MATERIAL, 1);
@@ -554,7 +557,7 @@ ep_lmcolor(float col[4], float ambient, float shiny)
 #endif IRIS_GT
 }
 
-loadident()
+void loadident()
 {
   static float ident[][4] = {
     {1.0, 0.0, 0.0, 0.0},
@@ -593,7 +596,7 @@ Coord triangle[][2] = {
     { 0.1, SQRT3/10.0 }
 };
 
-x11main()
+int x11main(int argc, char **argv)
 {
   Actuator *a;
   Device dev;
@@ -930,7 +933,7 @@ foldtwixt(int i,float *x,float t, float range)
 float outlinecolRGBA[4] = { 0, 0, 1, 1 };
 float colRGBA[4] = { 1, 0, 0, 1 };
 
-drawit()
+void drawit()
 {
   int i,j;
   int outlinecol;
@@ -1135,7 +1138,7 @@ drawit()
     popmatrix();
 }
 
-drawribbons()
+void drawribbons()
 {
 #ifdef IRIS_GT
   int ii,i,j;
@@ -1346,7 +1349,7 @@ int i;
 }
 #endif
 
-updatedwellsliders(int i)
+void updatedwellsliders(int i)
 {
   int j,k;
   float tot;
@@ -1375,7 +1378,7 @@ updatedwellsliders(int i)
     oldval[j]=dwellslider[j]->val;  
 }
 
-updateactivebutton(int i)
+void updateactivebutton(int i)
 {
   int j;
 
@@ -1523,7 +1526,7 @@ about ()
 }
 
 
-defpanel()
+void defpanel()
 {
   Alist *e;
   Actuator *a, *sa;

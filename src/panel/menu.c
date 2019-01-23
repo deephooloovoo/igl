@@ -22,17 +22,13 @@
 #include <panel.h>
 
 void
-_addmenuitem(a, val)
-     Actuator *a;
-     float val;
+_addmenuitem(Actuator *a, float val)
 {
   Menu *ad=(Menu *)a->data;
 }
 
 void
-_deletemmenuitem(a, sa)
-     Actuator *a;
-     Actuator *sa;
+_deletemmenuitem(Actuator *a, Actuator *sa)
 {
   Menu *ad=(Menu *)a->data;
 }
@@ -58,10 +54,7 @@ _deletemmenuitem(a, sa)
  */
 
 void
-_newvalmenu(a,p,x,y)
-     Actuator *a;
-     Panel *p;
-     Coord x, y;
+_newvalmenu(Actuator *a, Panel *p,Coord x, Coord y)
 {
   Menu *ad=(Menu *)a->data;
   Actuator *sa, *sb;
@@ -112,10 +105,7 @@ _newvalmenu(a,p,x,y)
 }
 
 void
-_newvalmenuitem(a,p,x,y)
-     Actuator *a;
-     Panel *p;
-     Coord x, y;
+_newvalmenuitem(Actuator *a, Panel *p,Coord x, Coord y)
 {
   if (!a->active) a->val=0.0;
   else 		  a->val=1.0;
@@ -123,8 +113,7 @@ _newvalmenuitem(a,p,x,y)
 }
 
 void
-_fixmenu(a)
-     Actuator *a;
+_fixmenu(Actuator *a)
 {
   Actuator *sa;
   Menu *ad=(Menu *)a->data;
@@ -136,8 +125,7 @@ _fixmenu(a)
 }
 
 void
-_addmenu(a)
-     Actuator *a;
+_addmenu(Actuator *a)
 {
   Actuator *sa;
   Menu *ad=(Menu *)a->data;
@@ -147,9 +135,7 @@ _addmenu(a)
 }
 
 void
-_drawmenu(a, p)
-Actuator *a;
-Panel *p;
+_drawmenu(Actuator *a, Panel *p)
 {
   Coord y;
   Menu *ad=(Menu *)a->data;
@@ -189,8 +175,7 @@ Panel *p;
 }
 
 void
-_addsubmenu(sa, a)
-     Actuator *sa, *a;
+_addsubmenu(Actuator *sa, Actuator *a)
 {
   Menu *ad=(Menu *)a->data;
   Actuator *sb, *sc;
@@ -217,8 +202,7 @@ _addsubmenu(sa, a)
 }
 
 void
-pnl_menu(a)
-Actuator *a;
+pnl_menu(Actuator *a)
 {
   Menu *ad;
 
@@ -242,8 +226,7 @@ Actuator *a;
 }
 
 void
-pnl_menu_item(a)
-Actuator *a;
+pnl_menu_item(Actuator *a)
 {
   pnl_wide_button(a);
 

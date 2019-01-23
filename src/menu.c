@@ -720,7 +720,7 @@ dopup (long pup)
     {
         /* the cursor is grabbed by someone else, so bail out */
         /* TBD: how do we destroy the cursor? */
-        return;
+        return ret;
     }
 
 

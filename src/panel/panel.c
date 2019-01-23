@@ -2729,7 +2729,7 @@ pnl_drawbevel(Actuator *a, Panel *p)
 }
 #endif PNL_ZBUFFER
 
-drawbevel(Actuator *a, Panel *p)
+void drawbevel(Actuator *a, Panel *p)
 {
   pnl_drawbevel(a, p);
 }

@@ -134,7 +134,7 @@ void
  *
  */
 
-_drawpup(Actuator *a, Panel *p,Coord x,Coord y, int mode,void (*drawfunc)())
+_drawpup(Actuator *a, Panel *p,Coord x,Coord y, int mode,void (*drawfunc)(Actuator *a, Panel *p, Coord x, Coord  y, int  style))
 /*Actuator *a;*/  /*p*/
 /*
 Panel *p;
