@@ -63,14 +63,14 @@ static: $(STATIC)
 examples: $(EXAMPLES)
 
 $(PANEL_OBJS): $(PANELDIR)/%.o: $(PANELDIR)/%.c $(INCDIR)/*.h
-	$(CC) $(CFLAGS) $(INCLUDES) -c -o $@ $< -g
+	$(CC) $(CFLAGS) $(INCLUDES) -c -o $@ $<
 
 $(LIB_OBJS): $(LIBDIR)/%.o: $(SRCDIR)/%.c $(INCDIR)/*.h
 	@echo Compiling $<...
-	@$(CC) $(CFLAGS) $(INCLUDES) -c -o $@ $< -g
+	@$(CC) $(CFLAGS) $(INCLUDES) -c -o $@ $<
 
 $(EP): $(PANEL_OBJS) $(LIB_OBJS)
-	$(LD) $(LDFLAGS) $(LIBS) -o $@ -g
+	$(CC) $(LIBS) $(LIB_OBJS) $(PANEL_OBJS) -o $@ -g
 
 $(SHARED): $(LIB_OBJS)
 	@echo Creating shared library $@...

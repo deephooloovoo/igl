@@ -45,7 +45,7 @@
 #define min(x,y) ((x) < (y) ? (x) : (y))
 
 //int rgb_to_rgb();
-int rgb_to_rgb( float fr, float fg, float fb, float *tr, float *tg, float *tb);
+void rgb_to_rgb( float fr, float fg, float fb, float *tr, float *tg, float *tb);
 
 static int (*tofunc)() = rgb_to_rgb;
 static int (*fromfunc)() = rgb_to_rgb;
